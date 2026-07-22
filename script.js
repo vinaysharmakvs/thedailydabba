@@ -3,8 +3,6 @@ const mobileMenu = document.querySelector(".mobile-menu");
 const orderForm = document.querySelector(".order-form");
 const formNote = document.querySelector("[data-form-note]");
 const orderEstimate = document.querySelector("[data-order-estimate]");
-const imageModal = document.querySelector("[data-image-modal]");
-const modalImage = document.querySelector("[data-modal-image]");
 const founderVideo = document.querySelector("[data-founder-video]");
 const videoPlayButton = document.querySelector("[data-video-play]");
 const dailyDabbaWhatsapp = "919872203405";
@@ -53,32 +51,6 @@ mobileMenu?.addEventListener("click", (event) => {
   if (event.target.closest("a")) {
     mobileMenu.hidden = true;
     menuButton?.setAttribute("aria-expanded", "false");
-  }
-});
-
-document.querySelectorAll(".menu-poster-button").forEach((button) => {
-  button.addEventListener("click", () => {
-    const image = button.querySelector("img");
-    if (!imageModal || !modalImage || !image) return;
-    modalImage.src = image.src;
-    modalImage.alt = image.alt;
-    imageModal.hidden = false;
-    document.body.style.overflow = "hidden";
-  });
-});
-
-document.querySelectorAll("[data-close-modal]").forEach((button) => {
-  button.addEventListener("click", () => {
-    if (!imageModal) return;
-    imageModal.hidden = true;
-    document.body.style.overflow = "";
-  });
-});
-
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && imageModal && !imageModal.hidden) {
-    imageModal.hidden = true;
-    document.body.style.overflow = "";
   }
 });
 
