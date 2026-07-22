@@ -5,6 +5,8 @@ const formNote = document.querySelector("[data-form-note]");
 const orderEstimate = document.querySelector("[data-order-estimate]");
 const imageModal = document.querySelector("[data-image-modal]");
 const modalImage = document.querySelector("[data-modal-image]");
+const founderVideo = document.querySelector("[data-founder-video]");
+const videoPlayButton = document.querySelector("[data-video-play]");
 const dailyDabbaWhatsapp = "919872203405";
 
 function formatPrice(value) {
@@ -78,6 +80,22 @@ document.addEventListener("keydown", (event) => {
     imageModal.hidden = true;
     document.body.style.overflow = "";
   }
+});
+
+videoPlayButton?.addEventListener("click", () => {
+  founderVideo?.play();
+});
+
+founderVideo?.addEventListener("play", () => {
+  videoPlayButton?.classList.add("is-hidden");
+});
+
+founderVideo?.addEventListener("pause", () => {
+  if (!founderVideo.ended) videoPlayButton?.classList.remove("is-hidden");
+});
+
+founderVideo?.addEventListener("ended", () => {
+  videoPlayButton?.classList.remove("is-hidden");
 });
 
 orderForm?.addEventListener("submit", (event) => {
